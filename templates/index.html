@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Downloader</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Video Downloader</h1>
+    <p class="subtitle">Download videos from YouTube, Vimeo, Twitter, TikTok, and more</p>
+  </header>
+
+  <div id="error-message" class="error hidden"></div>
+
+  <div class="input-group">
+    <input type="url" id="url-input" placeholder="Paste video URL here..." onkeypress="handleKeyPress(event)" autofocus>
+    <button id="info-btn" onclick="getInfo()">Get Info</button>
+  </div>
+
+  <div id="info-display" class="hidden">
+    <div class="video-info">
+      <img id="video-thumbnail" class="thumbnail hidden" alt="Thumbnail">
+      <div class="video-meta">
+        <h2 id="video-title"></h2>
+        <p>Duration: <span id="video-duration"></span></p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="format-select">Quality &amp; Format:</label>
+      <select id="format-select"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="filename-input">Custom filename (optional):</label>
+      <input type="text" id="filename-input" placeholder="Leave blank for auto-name">
+    </div>
+
+    <button id="download-btn" class="btn-primary" onclick="startDownload()">Download</button>
+  </div>
+
+  <div id="progress-section" class="hidden">
+    <div class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar">0%</div>
+    </div>
+    <p id="progress-text" class="progress-text">Starting...</p>
+  </div>
+
+  <div class="downloads-section">
+    <h2>Downloads</h2>
+    <ul id="downloads-list">
+      <li class="empty">No downloads yet</li>
+    </ul>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
